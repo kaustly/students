@@ -1,0 +1,25 @@
+<ul>hello</ul>
+
+
+<script>
+  var Student = function(){
+
+  }
+  Student.fetch = function(){
+    $.getJSON("/students.json", function(response){
+      console.log(response);
+    })
+  }
+  var StudentView = function(model){
+    //renders model on page
+  }
+</script>
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script>
+  Student.fetch().then(function(students){
+    for(var i = 0, i <students.length; i++){
+      new StudentView(students[i])
+    }
+  })
+</script>
